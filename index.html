@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web: Do Zero à Primeira Interação</title>
+    <!-- Importação do Tailwind CSS para utilitários e responsividade -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importação da fonte Inter para legibilidade moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Link de pular para o conteúdo (Acessibilidade para leitores de tela e teclado) -->
+    <a href="#conteudo-principal" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-lg">
+        Pular para o conteúdo principal
+    </a>
+
+    <!-- Cabeçalho Semântico com Flexbox -->
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+            <!-- Identidade Visual / Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-emerald-500 flex items-center justify-center text-white font-extrabold text-xl shadow-md" aria-hidden="true">
+                    &lt;/&gt;
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight">Start Web Lab</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Do zero à primeira interação</p>
+                </div>
+            </div>
+
+            <!-- Navegação e Botão de Acessibilidade (Alternador de Tema) -->
+            <nav aria-label="Navegação principal" class="flex items-center gap-4">
+                <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                    <li><a href="#pratica-dom" class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1">Prática DOM</a></li>
+                    <li><a href="#pilares" class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1">Pilares Web</a></li>
+                    <li><a href="#etica-acessibilidade" class="hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded px-2 py-1">Ética &amp; Acessibilidade</a></li>
+                </ul>
+
+                <!-- Botão Alternador de Tema -->
+                <button 
+                    id="btn-tema" 
+                    type="button" 
+                    aria-pressed="false"
+                    aria-label="Alternar para o modo escuro"
+                    class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-sm font-semibold border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all cursor-pointer">
+                    <span id="icone-tema" aria-hidden="true">🌙</span>
+                    <span id="texto-tema">Modo Escuro</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal Semântico -->
+    <main id="conteudo-principal" class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col gap-12">
+
+        <!-- Seção de Apresentação (Hero) -->
+        <section aria-labelledby="titulo-hero" class="bg-gradient-to-br from-indigo-900 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex flex-col gap-4 max-w-xl">
+                <span class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30">
+                    🚀 Unidade Prática
+                </span>
+                <h2 id="titulo-hero" class="text-2xl sm:text-4xl font-extrabold leading-tight">
+                    Página web: do zero à primeira interação
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Explore na prática como o <strong>HTML semântico</strong> estrutura o conteúdo, o <strong>CSS com Flexbox</strong> organiza o layout e o <strong>JavaScript</strong> dá vida à página manipulando o DOM.
+                </p>
+            </div>
+
+            <!-- Ilustração SVG Acessível -->
+            <div class="w-40 h-40 sm:w-48 sm:h-48 flex-shrink-0 bg-white/5 rounded-2xl p-4 border border-white/10 flex items-center justify-center">
+                <svg viewBox="0 0 120 120" class="w-full h-full" role="img" aria-label="Ilustração de um foguete decolando simbolizando o aprendizado em desenvolvimento web">
+                    <circle cx="60" cy="60" r="50" fill="#1e293b" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4"/>
+                    <path d="M60 22 C45 42 45 70 45 82 L75 82 C75 70 75 42 60 22 Z" fill="#f8fafc"/>
+                    <path d="M60 22 C52 33 49 45 48 52 L72 52 C71 45 68 33 60 22 Z" fill="#6366f1"/>
+                    <circle cx="60" cy="64" r="7" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5"/>
+                    <path d="M45 68 L32 84 L45 82 Z" fill="#10b981"/>
+                    <path d="M75 68 L88 84 L75 82 Z" fill="#10b981"/>
+                    <path d="M52 82 L60 102 L68 82 Z" fill="#f59e0b"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Seção 1: Laboratório Interativo de JavaScript e DOM -->
+        <section id="pratica-dom" aria-labelledby="titulo-contador" class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div>
+                    <h2 id="titulo-contador" class="text-xl sm:text-2xl font-bold">1. Laboratório de Manipulação do DOM</h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Teste eventos de clique, atualização dinâmica de elementos e lógica condicional.</p>
+                </div>
+                <span class="text-xs font-mono bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 px-3 py-1.5 rounded-lg border border-indigo-200 dark:border-indigo-800 self-start">
+                    document.getElementById()
+                </span>
+            </div>
+
+            <!-- Área do Contador usando Flexbox -->
+            <div class="flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 gap-6">
+                
+                <!-- Visor Numérico -->
+                <div class="flex flex-col items-center gap-2">
+                    <span class="text-xs uppercase tracking-widest font-semibold text-slate-500 dark:text-slate-400">Total de Interações</span>
+                    <div 
+                        id="valor-contador" 
+                        aria-live="polite" 
+                        class="text-6xl sm:text-7xl font-extrabold text-slate-800 dark:text-white transition-transform duration-200">
+                        0
+                    </div>
+                </div>
+
+                <!-- Mensagem Dinâmica com Lógica Condicional -->
+                <div 
+                    id="feedback-contador" 
+                    role="status"
+                    class="px-4 py-2.5 rounded-xl text-sm font-medium text-center bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 max-w-md w-full transition-colors">
+                    Contador zerado. Clique nos botões abaixo para interagir!
+                </div>
+
+                <!-- Controles do Contador alinhados com Flexbox -->
+                <div class="flex flex-wrap items-center justify-center gap-3 w-full">
+                    <button 
+                        id="btn-diminuir" 
+                        type="button"
+                        aria-label="Diminuir valor do contador em 1"
+                        class="px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-95 text-white font-bold shadow-sm focus:outline-none focus:ring-4 focus:ring-rose-500/40 transition-all cursor-pointer flex items-center gap-2">
+                        <span aria-hidden="true">-</span> Diminuir
+                    </button>
+
+                    <button 
+                        id="btn-zerar" 
+                        type="button"
+                        aria-label="Zerar o valor do contador"
+                        class="px-5 py-3 rounded-xl bg-slate-600 hover:bg-slate-700 active:scale-95 text-white font-bold shadow-sm focus:outline-none focus:ring-4 focus:ring-slate-500/40 transition-all cursor-pointer flex items-center gap-2">
+                        <span aria-hidden="true">↺</span> Zerar
+                    </button>
+
+                    <button 
+                        id="btn-aumentar" 
+                        type="button"
+                        aria-label="Aumentar valor do contador em 1"
+                        class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500/40 transition-all cursor-pointer flex items-center gap-2">
+                        <span aria-hidden="true">+</span> Aumentar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Os 3 Pilares do Desenvolvimento Web (Layout Flexbox) -->
+        <section id="pilares" aria-labelledby="titulo-pilares" class="flex flex-col gap-6">
+            <div>
+                <h2 id="titulo-pilares" class="text-xl sm:text-2xl font-bold">2. Estrutura, Estilo e Comportamento</h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400">Como cada tecnologia trabalha em conjunto nesta página.</p>
+            </div>
+
+            <!-- Cards distribuídos com Flexbox (flex-wrap e flex-1) -->
+            <div class="flex flex-col md:flex-row flex-wrap gap-6">
+                <article class="flex-1 min-w-[260px] bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-950 text-orange-600 dark:text-orange-400 flex items-center justify-center font-bold text-lg" aria-hidden="true">
+                        HTML
+                    </div>
+                    <h3 class="text-lg font-bold">HTML Semântico</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Utiliza tags com significado claro como <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">&lt;header&gt;</code>, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">&lt;main&gt;</code>, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">&lt;section&gt;</code> e <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">&lt;footer&gt;</code>, facilitando a leitura por navegadores e tecnologias assistivas.
+                    </p>
+                </article>
+
+                <article class="flex-1 min-w-[260px] bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 flex items-center justify-center font-bold text-lg" aria-hidden="true">
+                        CSS
+                    </div>
+                    <h3 class="text-lg font-bold">Layout com Flexbox</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Organiza os elementos de forma flexível e responsiva em linhas ou colunas (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">flex-row</code>, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">justify-between</code>, <code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">items-center</code>), adaptando-se a celulares e computadores.
+                    </p>
+                </article>
+
+                <article class="flex-1 min-w-[260px] bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg" aria-hidden="true">
+                        JS
+                    </div>
+                    <h3 class="text-lg font-bold">DOM &amp; Lógica</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Escuta eventos do usuário (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">addEventListener</code>) e aplica estruturas condicionais (<code class="text-xs bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded">if / else</code>) para atualizar textos, cores e estados em tempo real.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Seção 3: Acessibilidade e Ética nas Interações Digitais -->
+        <section id="etica-acessibilidade" aria-labelledby="titulo-etica" class="bg-emerald-50/70 dark:bg-emerald-950/20 rounded-3xl p-6 sm:p-8 border border-emerald-200 dark:border-emerald-900/60 flex flex-col md:flex-row gap-8 items-start">
+            <div class="flex-1 flex flex-col gap-3">
+                <h2 id="titulo-etica" class="text-xl font-bold text-emerald-950 dark:text-emerald-300 flex items-center gap-2">
+                    <span aria-hidden="true">♿</span> Acessibilidade na Web
+                </h2>
+                <p class="text-sm text-emerald-900/80 dark:text-emerald-200/80 leading-relaxed">
+                    Desenvolver para a web significa incluir todas as pessoas. Nesta página, aplicamos <strong>contraste adequado</strong> entre texto e fundo, <strong>indicadores de foco visíveis</strong> ao navegar com a tecla <kbd class="px-1.5 py-0.5 text-xs bg-white dark:bg-slate-800 rounded border border-emerald-300 dark:border-emerald-700">Tab</kbd> e atributos <strong>ARIA</strong> (<code class="text-xs">aria-live</code>, <code class="text-xs">aria-label</code>) para leitores de tela.
+                </p>
+            </div>
+
+            <div class="hidden md:block w-px self-stretch bg-emerald-200 dark:bg-emerald-800/60" aria-hidden="true"></div>
+
+            <div class="flex-1 flex flex-col gap-3">
+                <h2 class="text-xl font-bold text-emerald-950 dark:text-emerald-300 flex items-center gap-2">
+                    <span aria-hidden="true">🤝</span> Ética nas Interações Digitais
+                </h2>
+                <p class="text-sm text-emerald-900/80 dark:text-emerald-200/80 leading-relaxed">
+                    A interatividade com JavaScript deve respeitar a autonomia e o bem-estar do usuário. Isso envolve evitar padrões manipulativos (<em>dark patterns</em>), garantir transparência nas ações dos botões e criar interfaces honestas, seguras e acolhedoras.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé Semântico -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-400">
+            <p>Projeto educativo inspirado na unidade <strong>Página web: do zero à primeira interação</strong>.</p>
+            <p>HTML Semântico • CSS Flexbox • JavaScript DOM</p>
+        </div>
+    </footer>
+
+    <!-- Lógica JavaScript para Manipulação do DOM -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ==========================================
+            // 1. LÓGICA DO CONTADOR DE INTERAÇÕES (DOM)
+            // ==========================================
+            let contador = 0;
+
+            // Seleção dos elementos no DOM
+            const visorContador = document.getElementById('valor-contador');
+            const caixaFeedback = document.getElementById('feedback-contador');
+            const btnAumentar = document.getElementById('btn-aumentar');
+            const btnDiminuir = document.getElementById('btn-diminuir');
+            const btnZerar = document.getElementById('btn-zerar');
+
+            /**
+             * Atualiza o número na tela e aplica lógica condicional
+             * para modificar estilos e mensagens conforme o valor.
+             */
+            function atualizarInterfaceContador() {
+                // Atualiza o texto do contador
+                visorContador.textContent = contador;
+
+                // Pequena animação de escala para feedback visual
+                visorContador.classList.add('scale-110');
+                setTimeout(() => visorContador.classList.remove('scale-110'), 150);
+
+                // Reset das classes de cor do visor e da caixa de feedback
+                visorContador.classList.remove(
+                    'text-emerald-600', 'dark:text-emerald-400',
+                    'text-rose-600', 'dark:text-rose-400',
+                    'text-slate-800', 'dark:text-white'
+                );
+
+                caixaFeedback.className = 'px-4 py-2.5 rounded-xl text-sm font-medium text-center max-w-md w-full transition-colors border';
+
+                // Lógica condicional baseada no valor atual
+                if (contador > 0) {
+                    visorContador.classList.add('text-emerald-600', 'dark:text-emerald-400');
+                    caixaFeedback.classList.add('bg-emerald-50', 'dark:bg-emerald-950/50', 'text-emerald-800', 'dark:text-emerald-300', 'border-emerald-200', 'dark:border-emerald-800');
+
+                    if (contador >= 10) {
+                        caixaFeedback.textContent = `🎉 Incrível! Você já realizou ${contador} interações positivas!`;
+                    } else {
+                        caixaFeedback.textContent = `Valor positivo (${contador}): continue explorando os eventos do DOM.`;
+                    }
+                } else if (contador < 0) {
+                    visorContador.classList.add('text-rose-600', 'dark:text-rose-400');
+                    caixaFeedback.classList.add('bg-rose-50', 'dark:bg-rose-950/50', 'text-rose-800', 'dark:text-rose-300', 'border-rose-200', 'dark:border-rose-800');
+                    caixaFeedback.textContent = `⚠️ Valor negativo (${contador}): a lógica condicional detectou um número abaixo de zero.`;
+                } else {
+                    visorContador.classList.add('text-slate-800', 'dark:text-white');
+                    caixaFeedback.classList.add('bg-slate-200/70', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-transparent');
+                    caixaFeedback.textContent = 'Contador zerado. Clique nos botões abaixo para interagir!';
+                }
+            }
+
+            // Ouvintes de eventos (Event Listeners)
+            btnAumentar.addEventListener('click', () => {
+                contador++;
+                atualizarInterfaceContador();
+            });
+
+            btnDiminuir.addEventListener('click', () => {
+                contador--;
+                atualizarInterfaceContador();
+            });
+
+            btnZerar.addEventListener('click', () => {
+                contador = 0;
+                atualizarInterfaceContador();
+            });
+
+            // ==========================================
+            // 2. ALTERNADOR DE TEMA (ACESSIBILIDADE)
+            // ==========================================
+            const btnTema = document.getElementById('btn-tema');
+            const iconeTema = document.getElementById('icone-tema');
+            const textoTema = document.getElementById('texto-tema');
+            const htmlElement = document.documentElement;
